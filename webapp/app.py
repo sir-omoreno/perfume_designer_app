@@ -43,7 +43,7 @@ def find_your_scent():
 
 @app.route("/perfume_info")
 def perfume_info():
-    return render_template("perfume_info.hmtl")
+    return render_template("perfume_info.html")
 
 
 @app.route("/visualizations")
