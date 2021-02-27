@@ -1,3 +1,60 @@
+/* Add a black background color to the top navigation */
+.navbar {
+  background-color:rgb(207, 207, 245);
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  float: left;
+  color: #f2faf2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 30px;
+  font-style: oblique;
+  font-weight: 600;
+  font-variant: small-caps;
+  font-family: sans-serif;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* --------- Nav Bar ---------- */
+
+/* .navbar {
+  padding: 0px;
+  border-bottom: 5px solid rgb(139, 137, 241);
+  margin-bottom: 20px;
+} */
+/* .navbar-brand {
+  color: white    !important; 
+  background-color: rgb(139, 137, 241);
+  color-adjust: white;
+  padding: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 25px;
+  font-weight: bolder;
+} */
+
+/* .nav-link {
+  color:rgb(0, 128, 111);
+  font-size: 20px
+} */
+/* --------- Nav Bar ---------- */
+
+
 /* --------- Main page ---------- */
 canvas {
   display: block;
@@ -97,29 +154,6 @@ canvas {
   font-size: x-large;
 }
 /* --------- Main page ---------- */
-/* --------- Nav Bar ---------- */
-
-.navbar {
-  padding: 0px;
-  border-bottom: 5px solid rgb(139, 137, 241);
-  margin-bottom: 20px;
-}
-.navbar-brand {
-  color: white    !important; 
-  background-color: rgb(139, 137, 241);
-  color-adjust: white;
-  padding: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  font-size: 25px;
-  font-weight: bolder;
-}
-
-.nav-link {
-  color:rgb(0, 128, 111);
-  font-size: 20px
-}
-/* --------- Nav Bar ---------- */
 
 /* --------- Breeds page ---------- */
 .sunburstBox {
