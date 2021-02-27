@@ -66,6 +66,7 @@ Check out our LIVE Heroku Webpage here: Heroku link goes here
 ## Data Processing and Cleanup
 ### Selecting Data Source 
 Our process for finding data sources was... 
+**Note**: We had to scrape the data by year because we could only pull 1,000 records at a time. On the main search page when you click "see more results" the page maxed out at 1,000 perfumes. So, by filtering by year we were able to collect 1,000 records for each year. If a year had more than 1,000 perfumes produced that year then those extra perfumes are not reflected in our database. 
 
 The Fragrantica website gave information on perfumes/cologne available for sale, including the following information:  
 - Fragrance name and designer 
