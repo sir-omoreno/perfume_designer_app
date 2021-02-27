@@ -94,6 +94,8 @@ The Fragrantica website gave information on perfumes/cologne available for sale,
 
 #### Setup Instructions
 
+##Lessons Learned
+
 ## Inspiration
 Inspired by Rutgers Data Visulization Bootcamp & smelly people everywhere!
 
