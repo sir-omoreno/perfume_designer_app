@@ -27,14 +27,6 @@ canvas {
   padding: 10px 0;
 }
 
-.home-background {
-  padding-top: 50px;
-  padding-bottom: 50px;
-  text-align: center;
-  color: #f8f8f8;
-  background: url(../img/background-image.png) no-repeat center center;
-  background-size: cover;
-}
 #pets-logo {
   height: 400px;
   width: 400px;
