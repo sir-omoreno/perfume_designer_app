@@ -1,6 +1,6 @@
 # Scent Angels
 We have created a website that uses machine learning to predict a perfume’s popularity based on certain perfume features: accord, notes, sillage etc. and have built a “Perfume Designer” App where you can create your perfume and see if it would be popular or not.
-Check out a brief introduction to our website development, here: presentation link goes here
+Check out a brief introduction to our website development, here: https://docs.google.com/presentation/d/1kLpmB_BrK-Ui5TlWWvtS06L78TBK4_cAGl9DQRv548c/edit#slide=id.gbf44f01a53_0_25
 Check out our LIVE Heroku Webpage here: Heroku link goes here
 
 
