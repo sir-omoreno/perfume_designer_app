@@ -6,8 +6,8 @@ body{
 
 .navbar {
   /* background-color:rgb(207, 207, 245); */
-  background-color:#545454;
-  overflow: hidden;
+  background-color:#545454 !important;
+  /* overflow: hidden; */
   margin:0;
 }
 
