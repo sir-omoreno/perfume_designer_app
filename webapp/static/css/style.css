@@ -53,103 +53,30 @@ body{
 }
 /* --------- Main page ---------- */
 
-/* --------- Create your Fragrance page ---------- */
-.sunburstBox {
-  padding-top: 13px;
-}
+/* --------- Design your Fragrance page ---------- */
 
-.breeds-row {
+.design-row {
+  justify-content: center;
   text-align: center;
   padding: 10px;
 }
 
-#breedTable td {
-  text-align: left;
-  padding: 5px;
-}
-
-#breedTable tr td:first-child{
-  min-width: 40%;
-}
-
-.tdHeader {
-  font-weight: bold;
-}
-.breedName {
-  font-size: x-large;
-  margin: 0;
-}
-#breedScales {
-  display: flex;
-  justify-content: left;
-}
-.scalesBar {
-  fill: orange;
-  border-radius: 25px;
-}
-
-#breedLegend td{
-  padding-left: 40px;
-  text-align: left;
-}
-.tooltip {
-  position: absolute;
-  padding: 10px;
-  font: 12px sans-serif;
+.notes-row {
+  justify-content: center;
   text-align: center;
-  color: white;
-  background: #50C878;
-  border: 0;
-  border-radius: 10px;
- 
-}
-/* --------- Breeds page ---------- */
-
-/* --------- Find a Pet page ---------- */
-#map,
-body,
-html {
-  height: 100%;
+  padding: 10px;
 }
 
-.find-a-pet-row {
-  padding-left: 20px;
-  padding-bottom: 10px;
-}
-/* --------- Find a Pet page ---------- */
+/* --------- Design your Fragrance page ---------- */
 
-/* --------- Organizations page ---------- */
-html,
-body,
-#hexbin-map {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
-.info { 
-  padding: 6px 8px; 
-  font: 14px/16px Arial, Helvetica, sans-serif; 
-  background: white; 
-  background: rgba(255,255,255,0.8); 
-  box-shadow: 0 0 15px rgba(0,0,0,0.2); 
-  border-radius: 5px; 
-} 
-.info h4 { 
-  margin: 0 0 5px; 
-  color: #777; 
-}
-.legend {
-  line-height: 18px;
-  color: #555;
-}
-.legend i {
-  width: 18px;
-  height: 18px;
-  float: left;
-  margin-right: 8px;
-  opacity: 0.7;
-}
-/* --------- Organizations page ---------- */
+/* --------- Perfume Info page ---------- */
+
+
+/* --------- Perfume Info page ---------- */
+
+/* --------- Visualization page ---------- */
+
+/* --------- Visualization page ---------- */
 
 /* --------- About page ---------- */
 .about-box {
