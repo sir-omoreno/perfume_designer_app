@@ -1,5 +1,11 @@
 body{
+  background-image: url("/static/images/flower.jpg");
   background-color: #f6f0ed;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
 /* --------- Nav Bar ---------- */
@@ -62,6 +68,12 @@ body{
 }
 
 .notes-row {
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.button-row {
   justify-content: center;
   text-align: center;
   padding: 10px;

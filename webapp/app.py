@@ -4,8 +4,9 @@ import requests
 import json
 import pandas as pd
 import numpy as np
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_pymongo import PyMongo
+from pymongo import MongoClient 
 
 #################################################
 # Flask Setup
@@ -21,7 +22,7 @@ app.config.update(
 #################################################
 # setup mongo connection
 
-app.config["MONGO_URI"] = "mongodb://localhost:27017/base_database"
+app.config["MONGO_URI"] = "mongodb://localhost:27017/perfumes_db"
 # app.config["MONGO_URI"] = "mongodb+srv://<dbName>:<password>@cluster0.s0gp3.mongodb.net/rescue_angels_db?retryWrites=true&w=majority"
 
 mongo = PyMongo(app)
@@ -39,6 +40,11 @@ def home():
 @app.route("/find_your_scent")
 def find_your_scent():
     return render_template("find_your_scent.html")
+
+@app.route("/perfume_notes")
+def pefume_notes():
+    perfume_notes = list(mongo.db.perfume_notes.find({},{'_id': False}))
+    return jsonify(perfume_notes)
 
 
 @app.route("/perfume_info")
