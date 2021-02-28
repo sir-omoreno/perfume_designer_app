@@ -9,6 +9,7 @@ body{
   background-color:#545454 !important;
   /* overflow: hidden; */
   margin:0;
+  padding:0;
 }
 
 /* Style the links inside the navigation bar */
@@ -43,7 +44,7 @@ body{
 /* --------- Main page ---------- */
 #main-page{
   position: center;
-  margin:10px;
+  margin:20px;
   padding:0;
 }
 #main-img{
@@ -52,7 +53,7 @@ body{
 }
 /* --------- Main page ---------- */
 
-/* --------- Breeds page ---------- */
+/* --------- Create your Fragrance page ---------- */
 .sunburstBox {
   padding-top: 13px;
 }
@@ -149,3 +150,13 @@ body,
   opacity: 0.7;
 }
 /* --------- Organizations page ---------- */
+
+/* --------- About page ---------- */
+.about-box {
+  border: 0px 5px 0px 5px;  
+  border-style: solid;
+  border-color: #545454;
+  
+}
+
+/* --------- About page ---------- */
