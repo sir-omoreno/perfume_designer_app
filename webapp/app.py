@@ -7,6 +7,7 @@ import numpy as np
 from flask import Flask, render_template, request, jsonify
 from flask_pymongo import PyMongo
 from pymongo import MongoClient 
+import joblib
 
 #################################################
 # Flask Setup
@@ -45,6 +46,12 @@ def find_your_scent():
 def pefume_notes():
     perfume_notes = list(mongo.db.perfume_notes.find({},{'_id': False}))
     return jsonify(perfume_notes)
+
+@app.route("/perfume_popularity/<featuresList>")
+def perfume_popularity():
+    perfume_model = joblib.load("static/Resources/perfume_model.sav")
+    outcome = perfume_model.predict(X=featuresList)
+    return jsonify(outcome)
 
 
 @app.route("/perfume_info")

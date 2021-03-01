@@ -57,45 +57,57 @@
   <div class="row design-row">
     Choose your perfume's features
   </div>
-  <div class="row notes-row">
-    <!-- Drop down to select Notes -->
-    <div class="col-md-4">Number of Top Notes
-      <select id="top-note-count" onchange="listTopNotes(this.value)">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
+  <form>
+    <div class="row notes-row">
+      <!-- Drop down to select Notes -->
+      <div class="col-md-4">Number of Top Notes
+        <select id="top-note-count" onchange="listTopNotes(this.value)">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div class="col-md-4">Number of Middle Notes
+        <select id="middle-note-count" onchange="listMiddleNotes(this.value)">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+      <div class="col-md-4">Number of Base Notes
+        <select id="base-note-count" onchange="listBaseNotes(this.value)">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
     </div>
-    <div class="col-md-4">Number of Middle Notes
-      <select id="middle-note-count" onchange="listMiddleNotes(this.value)">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
+    <div class="row notes-row">
+      <!-- Drop down to select Notes -->
+      <div class="col-md-4" id="top-note-sel">
+      </div>
+      <div class="col-md-4" id="middle-note-sel">
+      </div>
+      <div class="col-md-4" id="base-note-sel">
+      </div>
     </div>
-    <div class="col-md-4">Number of Base Notes
-      <select id="base-note-count" onchange="listBaseNotes(this.value)">
-        <option value="0">0</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-      </select>
+    <div class="row notes-images-row">
+      <!-- Drop down to select Notes -->
+      <div class="col-md-4" id="top-note-img">
+      </div>
+      <div class="col-md-4" id="middle-note-img">
+      </div>
+      <div class="col-md-4" id="base-note-img">
+      </div>
     </div>
-  </div>
-  <div class="row notes-row">
-    <!-- Drop down to select Notes -->
-    <div class="col-md-4" id="top-note-sel">
+    <div class="row button-row">
+      <input type="Submit" value="Create Fragrance">
+      <input type="Reset">
     </div>
-    <div class="col-md-4" id="middle-note-sel">
-    </div>
-    <div class="col-md-4" id="base-note-sel">
-    </div>
-  </div>
-  <div class="row button-row">
-    <input type="Submit" value="Create Fragrance">
-  </div>
+  </form>
 
   <!-- Bootstrap-->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
