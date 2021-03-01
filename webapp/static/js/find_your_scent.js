@@ -164,6 +164,18 @@ function findPopularity() {
         notesList.push(baseNoteFeature);
     }
     console.log(notesList);
+
+    d3.json("/perfume_popularity/{notesList}").then(function (perfumeNotesData, err) {
+        if (err) { throw err };
+        if (!perfumeNotesData) {
+            console.log("I wasn't able to get data from the Web API you selected.");
+            return;
+        }
+
+        
+    }).catch(function (error) {
+        console.log(error);
+    });
 }
 
 function clearForm() {
