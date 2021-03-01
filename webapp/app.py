@@ -48,9 +48,9 @@ def pefume_notes():
     return jsonify(perfume_notes)
 
 @app.route("/perfume_popularity/<featuresList>")
-def perfume_popularity():
+def perfume_popularity(featuresList):
     perfume_model = joblib.load("static/Resources/perfume_model.sav")
-    outcome = perfume_model.predict(X=featuresList)
+    outcome = perfume_model.predict(featuresList)
     return jsonify(outcome)
 
 
