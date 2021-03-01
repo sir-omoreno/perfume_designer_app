@@ -24,6 +24,7 @@ function listTopNotes(topNoteCount) {
         // find the names of the notes and sort them
         perfumeNotesData.forEach(data => perfumeNotes.push(data["Note Name"]));
         perfumeNotes.sort();
+        
 
         console.log(perfumeNotes);
         // add drop downs for the number of notes selected
