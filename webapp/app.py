@@ -49,6 +49,10 @@ def pefume_notes():
     print(perfume_notes)
     return jsonify(perfume_notes)
 
+@app.route("/test")
+def test():
+    return render_template("form_test.html")
+
 # # testing coding form
 
 
