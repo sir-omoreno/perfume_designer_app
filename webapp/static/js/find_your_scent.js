@@ -2,14 +2,14 @@
 var form = d3.select("form");
 
 // Create fragrance
-form.on("submit", findPopularity);
+// form.on("submit", findPopularity);
 
 form.on("reset", clearForm);
 
 // List the number of Top Notes
 function listTopNotes(topNoteCount) {
     // div for top note
-    var topNoteSel = d3.select("#top-note-sel")
+    var topNoteSel = d3.selectAll("#top-note-sel")
     topNoteSel.html("");
     // get the perfume notes data
     d3.json("/perfume_notes").then(function (perfumeNotesData, err) {
@@ -25,12 +25,16 @@ function listTopNotes(topNoteCount) {
         perfumeNotesData.forEach(data => perfumeNotes.push(data["Note Name"]));
         perfumeNotes.sort();
         
-
         console.log(perfumeNotes);
         // add drop downs for the number of notes selected
         for (i = 0; i < topNoteCount; i++) {
             var topNotesID = "topNote" + i;
-            var topNotesDropDown = topNoteSel.append("select")
+            var topNotesDiv = topNoteSel.append("div")
+                .text("Top Note " + (i+1) + " ")
+            var topNotesDropDown = topNotesDiv.append("input")
+                .attr('list', topNotesID)
+                .attr('name', topNotesID)
+                .append("datalist")
                 .attr('id', topNotesID);
             perfumeNotes.forEach(item => {
                 topNotesDropDown.append("option")
@@ -84,10 +88,17 @@ function listMiddleNotes(middleNoteCount) {
         // add drop downs for the number of notes selected
         for (i = 0; i < middleNoteCount; i++) {
             var middleNotesID = "middleNote" + i;
-            var middleNotesDropDown = middleNoteSel.append("select")
+            var middleNotesDiv = middleNoteSel.append("div")
+                .text("Middle Note " + (i+1) + " ")
+            var middleNotesDropDown = middleNotesDiv.append("input")
+                .attr('list', middleNotesID)
+                .attr('name', middleNotesID)
+                .append("datalist")
                 .attr('id', middleNotesID);
             perfumeNotes.forEach(item => {
-                middleNotesDropDown.append("option").text(item).attr("value", item);
+                middleNotesDropDown.append("option")
+                    .text(item)
+                    .attr("value", item);
             });
         }
     }).catch(function (error) {
@@ -118,10 +129,17 @@ function listBaseNotes(baseNoteCount) {
         // add drop downs for the number of notes selected
         for (i = 0; i < baseNoteCount; i++) {
             var baseNotesID = "baseNote" + i;
-            var baseNotesDropDown = baseNoteSel.append("select")
+            var baseNotesDiv = baseNoteSel.append("div")
+            .text("Base Note " + (i+1) + " ")
+            var baseNotesDropDown = baseNotesDiv.append("input")
+                .attr('list', baseNotesID)
+                .attr('name', baseNotesID)
+                .append("datalist")
                 .attr('id', baseNotesID);
             perfumeNotes.forEach(item => {
-                baseNotesDropDown.append("option").text(item).attr("value", item);
+                baseNotesDropDown.append("option")
+                    .text(item)
+                    .attr("value", item);
             });
         }
     }).catch(function (error) {

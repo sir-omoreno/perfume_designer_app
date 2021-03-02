@@ -59,32 +59,26 @@
   </div>
 
   <!-- Testing form code -->
-  <form action="/perfume_form_test" method="POST" role="form">
+  <form action="/perfume_predict" method="POST" role="form">
     <div class="row notes-row">
-      <!-- Drop down to select Notes -->
-      <div class="col-md-4">Number of Top Notes
-        <select id="top-note-count" onchange="listTopNotes(this.value)">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
+      <!-- Drop down to select Number of Notes -->
+      <!-- Top Notes -->
+      <div class="col-md-4">
+        <label for="top-note-count">Number of Top Notes (max 3):</label>
+        <input type="number" id="top-note-count" name="top-note-count" min="0" max="3" value=0
+          onchange="listTopNotes(this.value)">
       </div>
-      <div class="col-md-4">Number of Middle Notes
-        <select id="middle-note-count" onchange="listMiddleNotes(this.value)">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
+      <!-- Middle Notes -->
+      <div class="col-md-4">
+        <label for="middle-note-count">Number of Middle Notes (max 3):</label>
+        <input type="number" id="middle-note-count" name="middle-note-count" min="0" max="3" value=0
+          onchange="listMiddleNotes(this.value)">
       </div>
-      <div class="col-md-4">Number of Base Notes
-        <select id="base-note-count" onchange="listBaseNotes(this.value)">
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-        </select>
+      <!-- Base Notes -->
+      <div class="col-md-4">
+        <label for="base-note-count">Number of Base Notes (max 3):</label>
+        <input type="number" id="base-note-count" name="base-note-count" min="0" max="3" value=0
+          onchange="listBaseNotes(this.value)">
       </div>
     </div>
     <div class="row notes-row">
@@ -97,7 +91,7 @@
       </div>
     </div>
     <div class="row notes-images-row">
-      <!-- Drop down to select Notes -->
+      <!-- Note Images -->
       <div class="col-md-4" id="top-note-img">
       </div>
       <div class="col-md-4" id="middle-note-img">
@@ -106,10 +100,15 @@
       </div>
     </div>
     <div class="row button-row">
-      <input type="Submit" value="Create Fragrance">
-      <input type="Reset">
+      <input type="Submit" value="Create Fragrance"></input>
+      <input type="Reset"></input>
     </div>
     <div class="row results-row">
+      {% if result %}
+      <div class="col-lg-4">
+        <h4>Your new Perfume is {{ result }}</h4>
+      </div>
+      {% endif %}
     </div>
   </form>
 
