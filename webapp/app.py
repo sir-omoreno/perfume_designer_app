@@ -49,6 +49,7 @@ def pefume_notes():
     print(perfume_notes)
     return jsonify(perfume_notes)
 
+
 @app.route("/test")
 def test():
     return render_template("form_test.html")
@@ -58,8 +59,9 @@ def test():
 
 # @app.route("perfume_form_test", methods=["POST", "GET"])
 # def perfume_form_test():
-    # top-note-count = str(request.form['0'])
-    
+#     if request.method == 'POST':
+#        as_dict = request.form.getlist('top-note-count')
+
 
 # # user input list
 #     features = [xxxxx, xxxxx, xxxxx, xxxxx, xxxx, xxxxx, xxxxxxx, xxxxx]
