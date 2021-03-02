@@ -85,6 +85,57 @@ The Fragrantica website gave information on perfumes/cologne available for sale,
 
 ## Machine Learning Development
 
+Based on the perfume notes, we wanted to check if we could predict if the perfume is for men, women or unisex.
+
+We loaded the perfume data from MongoDB. The perfume notes are divided as top, middle and base notes. Each of these fields is a list. So we had to use MultiLabelBinarizer to create a feature column for each note based on if it is a top, middle or base note.
+
+![MultiLabelBinarizer](images/MultiLabelBinarizer.png "MultiLabelBinarizer")
+
+If a note was not an ingredient in the perfume, it was marked as 0, otherwise it was marked as 1. We decided to use only notes as features. Accords are a combination of notes, so we dropped that as a feature. Longevity, Sillage, gender vote and price value does not affect the outcome of if the perfume is for a particular gender, so we skipped those as features as well. After dropping unnecessary columns from the perfume dataframe, the resulting was X(data) which are all the features and y(target) was if the perfume was for men, women or unisex. 
+
+A dataframe was created listing all the features and uploaded to MongoDB. We will use this later in app.py
+
+We also looked at the feature importance, but did not remove any since they had almost the same importance.
+
+![FeatureImportance](images/featureImportance.png "Feature Importance")
+
+After splitting the data into train and test we tried the following Models and checked their classification reports to find out which was the best model:
+
+#### SVC
+
+![SVC](images/svc.png "SVC")
+
+We used GridSearch with the following parameters:   
+```param_grid = {'C': [5, 20, 50],
+              'kernel': ('linear', 'rbf')}
+```
+
+#### KNearestNeighbors
+
+![KNearestNeighbors](images/knn.png "KNearestNeighbors")
+
+#### DecisionTree
+
+![DecisionTree](images/DecisionTree.png "DecisionTree")
+
+#### RandomForest
+
+![RandomForest](images/RandomForest.png "RandomForest")
+
+#### Deep Learning Neural Network
+
+![NeuralNetwork](images/NeuralNetwork.png "NeuralNetwork")
+
+From the classification reports, we decided that SVC with kernel:rbf and C=20 was the best model with an accuracy of 0.62.
+
+We saved this model using joblib.   
+```import joblib
+final_model = grid.best_estimator_
+filename = '../webapp/static/Resources/gender_perfume_model.sav'
+joblib.dump(final_model, filename)
+```
+
+
 ## Tableau Development
 
 ## Setup
@@ -96,6 +147,8 @@ The Fragrantica website gave information on perfumes/cologne available for sale,
 #### Setup Instructions
 
 ## Lessons Learned
+
+We had initially planned to create a machine learning model that would predict the popularity of the perfume based on the perfume features. However, this model returns negative R2 scores indicating that the model was just not a bad but extremely terrible fit for the data.
 
 ## Inspiration
 Inspired by Rutgers Data Visulization Bootcamp & smelly people everywhere!
