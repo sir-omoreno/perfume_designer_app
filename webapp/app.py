@@ -54,7 +54,8 @@ def pefume_notes():
 
 # @app.route("perfume_form_test", methods=["POST", "GET"])
 # def perfume_form_test():
-#     age = str(request.form['top'])
+    # top-note-count = str(request.form['0'])
+    
 
 # # user input list
 #     features = [xxxxx, xxxxx, xxxxx, xxxxx, xxxx, xxxxx, xxxxxxx, xxxxx]
