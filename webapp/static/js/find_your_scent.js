@@ -205,6 +205,7 @@ function findGender() {
         }
 
         var resultsRow = d3.select(".results-row")
+        resultsRow.html("")
         resultsRow.append("h4")
             .text("Your new Fragrance is perfect " + perfumeModelResult + "!")
         console.log(perfumeModelResult)
@@ -217,5 +218,6 @@ function clearForm() {
     d3.select("#top-note-sel").html("");
     d3.select("#middle-note-sel").html("");
     d3.select("#base-note-sel").html("");
+    d3.select(".results-row").html("")
 
 }
