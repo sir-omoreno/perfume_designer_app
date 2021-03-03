@@ -23,8 +23,9 @@ function listTopNotes(topNoteCount) {
 
         // find the names of the notes and sort them
         perfumeNotesData.forEach(data => perfumeNotes.push(data["Note Name"]));
+        perfumeNotes = perfumeNotes.map(note => note[0].toUpperCase() + note.substring(1));
         perfumeNotes.sort();
-
+        
         // add drop downs for the number of notes selected
         for (i = 0; i < topNoteCount; i++) {
 
@@ -45,23 +46,23 @@ function listTopNotes(topNoteCount) {
             });
         }
         // Get the images
-        var selectGroup = d3.selectAll("select");
-        selectGroup.on('change', function () {
-            console.log("newData");
-            var newData = d3.select(this).property('value');
-            var index = perfumeNotesData.findIndex(function (note) {
-                return note["Note Name"] == newData;
-            })
-            var perf = perfumeNotesData[index]
-            console.log(perf);
-            var imgDiv = d3.select("top-note-img");
-            imgDiv.append("img")
-                .attr("href", perf["Note Image"])
-            // .attr("x", "60")
-            // .attr("y", "60")
-            // .attr("width", "50")
-            // .attr("height", "50");
-        })
+        // var selectGroup = d3.selectAll("select");
+        // selectGroup.on('change', function () {
+        //     console.log("newData");
+        //     var newData = d3.select(this).property('value');
+        //     var index = perfumeNotesData.findIndex(function (note) {
+        //         return note["name"] == newData;
+        //     })
+        //     var perf = perfumeNotesData[index]
+        //     console.log(perf);
+        //     var imgDiv = d3.select("top-note-img");
+        //     imgDiv.append("img")
+        //         .attr("href", perf["image"])
+        //     // .attr("x", "60")
+        //     // .attr("y", "60")
+        //     // .attr("width", "50")
+        //     // .attr("height", "50");
+        // })
     }).catch(function (error) {
         console.log(error);
     });
@@ -84,6 +85,7 @@ function listMiddleNotes(middleNoteCount) {
 
         // find the names of the notes and sort them
         perfumeNotesData.forEach(data => perfumeNotes.push(data["Note Name"]));
+        perfumeNotes = perfumeNotes.map(note => note[0].toUpperCase() + note.substring(1));
         perfumeNotes.sort();
 
         console.log(perfumeNotes);
@@ -127,6 +129,7 @@ function listBaseNotes(baseNoteCount) {
 
         // find the names of the notes and sort them
         perfumeNotesData.forEach(data => perfumeNotes.push(data["Note Name"]));
+        perfumeNotes = perfumeNotes.map(note => note[0].toUpperCase() + note.substring(1));
         perfumeNotes.sort();
 
         // add drop downs for the number of notes selected
@@ -234,7 +237,7 @@ function findGender() {
                 var tr = tbody.append("tr");
                 tr.append("td")
                     .attr("colspan", 2)
-                    .text("Perfumes with the notes you selected");
+                    .text("Perfumes with the note combination you selected!");
                 for (i = 0; i < perfumesList.length; i++) {
                     console.log(perfumesList[i]);
                     var tr = tbody.append("tr");
@@ -247,7 +250,7 @@ function findGender() {
             else {
                 var tr = tbody.append("tr");
                 tr.append("td")
-                    .text("There are no perfumes ith the notes you selected!");
+                    .text("There are no perfumes with the notes you selected!");
             }
 
             console.log(perfumesList)

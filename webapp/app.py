@@ -51,14 +51,63 @@ def pefume_notes():
 
 @app.route("/find_perfume_by_notes", methods=["POST"])
 def find_perfume_by_notes():
+    #  get the list of all notes
     features_list = request.get_json()
-    notes_list = []
+    # initialize lists for each note type
+    top_notes_list = []
+    middle_notes_list = []
+    base_notes_list = []
+
+    # find the note and assign to correct list
     for note in features_list:
-        x = note.rsplit("_", 1)
-        notes_list.append(x[1])
-    unique_notes = list(set(notes_list))
+        #  top notes
+        top_x = note.rsplit("top_note_", 1)
+        if len(top_x) == 2:
+            top_notes_list.append(top_x[1])
+            #  middle notes
+        middle_x = note.rsplit("middle_note_", 1)
+        if len(middle_x) == 2:
+            middle_notes_list.append(middle_x[1])
+        # base notes
+        base_x = note.rsplit("base_note_", 1)
+        if len(base_x) == 2:
+            base_notes_list.append(base_x[1])
+    unique_top_notes = list(set(top_notes_list))
+    unique_middle_notes = list(set(middle_notes_list))
+    unique_base_notes = list(set(base_notes_list))
     
-    perfumes = list(mongo.db.perfume_data.find({ '$or' : [ {"top notes" : {'$in' : unique_notes}} , {"middle notes" : {'$in' : unique_notes}} , {"base notes" : {'$in' : unique_notes}} ]},{'_id': False}))
+    # search for perfumes for given notes
+    if unique_top_notes:
+        if unique_middle_notes:
+            if unique_base_notes:
+                # top, middle and base notes
+                perfumes = list(mongo.db.perfume_data.find({ '$and' : [ {"top notes" : {'$in' : unique_top_notes}} , {"middle notes" : {'$in' : unique_middle_notes}} , {"base notes" : {'$in' : unique_base_notes}} ]},{'_id': False}))
+            else:
+                # top and middle notes
+                perfumes = list(mongo.db.perfume_data.find({ '$and' : [ {"top notes" : {'$in' : unique_top_notes}} , {"middle notes" : {'$in' : unique_middle_notes}} ]},{'_id': False}))
+        else:
+            if unique_base_notes:
+                # top and base notes
+                perfumes = list(mongo.db.perfume_data.find({ '$and' : [ {"top notes" : {'$in' : unique_top_notes}} , {"base notes" : {'$in' : unique_base_notes}} ]},{'_id': False}))
+            else:
+                # top notes
+                perfumes = list(mongo.db.perfume_data.find({ '$or' : [ {"top notes" : {'$in' : unique_top_notes}} ]},{'_id': False}))
+    else:
+        if unique_middle_notes:
+            if unique_base_notes:
+                # middle and base notes
+                perfumes = list(mongo.db.perfume_data.find({ '$and' : [ {"middle notes" : {'$in' : unique_middle_notes}} , {"base notes" : {'$in' : unique_base_notes}} ]},{'_id': False}))
+            else:
+                # middle notes
+                perfumes = list(mongo.db.perfume_data.find({ '$and' : [ {"middle notes" : {'$in' : unique_middle_notes}} ]},{'_id': False}))
+        else:            
+            if unique_base_notes:
+                # base notes
+                perfumes = list(mongo.db.perfume_data.find({ '$and' : [ {"base notes" : {'$in' : unique_base_notes}} ]},{'_id': False}))
+            else:
+                # no notes
+                perfumes = []
+
     # print(perfumes)
     return jsonify(perfumes)
 
