@@ -1,0 +1,101 @@
+body{
+  background-image: url("/static/images/flower.jpg");
+  background-color: #f6f0ed;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* --------- Nav Bar ---------- */
+
+.navbar {
+  /* background-color:rgb(207, 207, 245); */
+  background-color:#545454 !important;
+  /* overflow: hidden; */
+  margin:0;
+  padding:0;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  float: left;
+  color: #f2faf2;
+  text-align: center;
+  /* padding: 14px 16px; */
+  text-decoration: none;
+  font-size: 25px;
+  /* font-style: oblique; */
+  /* font-weight: 400; */
+  /* font-variant: small-caps; */
+  font-family: Ubuntu, sans-serif;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* --------- Nav Bar ---------- */
+
+
+/* --------- Main page ---------- */
+#main-page{
+  position: center;
+  margin:20px;
+  padding:0;
+}
+#main-img{
+  width: 100%;
+  height: auto;
+}
+/* --------- Main page ---------- */
+
+/* --------- Design your Fragrance page ---------- */
+
+.design-row {
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.notes-row {
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.button-row {
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+/* --------- Design your Fragrance page ---------- */
+
+/* --------- Perfume Info page ---------- */
+
+
+/* --------- Perfume Info page ---------- */
+
+/* --------- Visualization page ---------- */
+
+/* --------- Visualization page ---------- */
+
+/* --------- About page ---------- */
+.about-box {
+  border: 0px 5px 0px 5px;  
+  border-style: solid;
+  border-color: #545454;
+  
+}
+
+/* --------- About page ---------- */
