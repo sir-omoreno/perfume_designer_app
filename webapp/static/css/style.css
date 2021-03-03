@@ -85,6 +85,12 @@ body{
   padding: 20px;
 }
 
+.perfumes-row {
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
 /* --------- Design your Fragrance page ---------- */
 
 /* --------- Perfume Info page ---------- */

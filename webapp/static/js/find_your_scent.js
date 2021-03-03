@@ -24,13 +24,13 @@ function listTopNotes(topNoteCount) {
         // find the names of the notes and sort them
         perfumeNotesData.forEach(data => perfumeNotes.push(data["Note Name"]));
         perfumeNotes.sort();
-        
+
         // add drop downs for the number of notes selected
         for (i = 0; i < topNoteCount; i++) {
-            
+
             var topNotesID = "topNote" + i;
             var topNotesDiv = topNoteSel.append("div")
-                .text("Top Note " + (i+1) + " ")
+                .text("Top Note " + (i + 1) + " ")
             var topNotesDropDown = topNotesDiv.append("select")
                 .attr('id', topNotesID);
             // var topNotesDropDown = topNotesDiv.append("input")
@@ -57,10 +57,10 @@ function listTopNotes(topNoteCount) {
             var imgDiv = d3.select("top-note-img");
             imgDiv.append("img")
                 .attr("href", perf["Note Image"])
-                // .attr("x", "60")
-                // .attr("y", "60")
-                // .attr("width", "50")
-                // .attr("height", "50");
+            // .attr("x", "60")
+            // .attr("y", "60")
+            // .attr("width", "50")
+            // .attr("height", "50");
         })
     }).catch(function (error) {
         console.log(error);
@@ -91,7 +91,7 @@ function listMiddleNotes(middleNoteCount) {
         for (i = 0; i < middleNoteCount; i++) {
             var middleNotesID = "middleNote" + i;
             var middleNotesDiv = middleNoteSel.append("div")
-                .text("Middle Note " + (i+1) + " ")
+                .text("Middle Note " + (i + 1) + " ")
             var middleNotesDropDown = middleNotesDiv.append("select")
                 .attr('id', middleNotesID);
             // var middleNotesDropDown = middleNotesDiv.append("input")
@@ -133,7 +133,7 @@ function listBaseNotes(baseNoteCount) {
         for (i = 0; i < baseNoteCount; i++) {
             var baseNotesID = "baseNote" + i;
             var baseNotesDiv = baseNoteSel.append("div")
-            .text("Base Note " + (i+1) + " ")
+                .text("Base Note " + (i + 1) + " ")
             var baseNotesDropDown = baseNotesDiv.append("select")
                 .attr('id', baseNotesID);
             // var baseNotesDropDown = baseNotesDiv.append("input")
@@ -169,7 +169,6 @@ function findGender() {
     for (i = 0; i < topNoteCount; i++) {
         var topNotesID = "#topNote" + i;
         console.log(topNotesID);
-        console.log(d3.select(topNotesID))
         var topNoteFeature = "top_note_" + d3.select(topNotesID).node().value;
         console.log(topNoteFeature);
         notesList.push(topNoteFeature);
@@ -190,24 +189,73 @@ function findGender() {
     }
 
     d3.json("/perfume_predict2", {
-        method:"POST",
+        method: "POST",
         body: JSON.stringify(
-          notesList
+            notesList
         ),
         headers: {
-          "Content-type": "application/json; charset=UTF-8"
+            "Content-type": "application/json; charset=UTF-8"
         }
-      }).then(function (perfumeModelResult, err) {
+    }).then(function (perfumeModelResult, err) {
         if (err) { throw err };
         if (!perfumeModelResult) {
             console.log("I wasn't able to get data from the Web API you selected.");
             return;
         }
 
+        // display the result
         var resultsRow = d3.select(".results-row")
         resultsRow.html("")
         resultsRow.append("h4")
             .text("Your new Fragrance is perfect " + perfumeModelResult + "!")
+
+        // find all perfumes with selected notes
+        d3.json("/find_perfume_by_notes", {
+            method: "POST",
+            body: JSON.stringify(
+                notesList
+            ),
+            headers: {
+                "Content-type": "application/json; charset=UTF-8"
+            }
+        }).then(function (perfumesList, err) {
+            if (err) { throw err };
+            if (!perfumesList) {
+                console.log("I wasn't able to get data from the Web API you selected.");
+                return;
+            }
+
+            // find the tbody element
+            var tbody = d3.select("tbody");
+            // first clear the table of existing data
+            tbody.html("");
+
+            if (perfumesList.length > 0) {
+                var tr = tbody.append("tr");
+                tr.append("td")
+                    .attr("colspan", 2)
+                    .attr("font-size", 20)
+                    .attr("font-weight", 200)
+                    .text("Perfumes with the notes you selected");
+                for (i = 0; i < perfumesList.length; i++) {
+                    console.log(perfumesList[i]);
+                    var tr = tbody.append("tr");
+                    tr.append("img").attr("src", perfumesList[i]["image"])
+                        .attr('width', "20%");
+                    tr.append("td")
+                        .text(perfumesList[i]["name"]);
+                }
+            }
+            else {
+                var tr = tbody.append("tr");
+                tr.append("td")
+                    .text("There are no perfumes ith the notes you selected!");
+            }
+
+            console.log(perfumesList)
+        }).catch(function (error) {
+            console.log(error);
+        });
         console.log(perfumeModelResult)
     }).catch(function (error) {
         console.log(error);
@@ -218,6 +266,7 @@ function clearForm() {
     d3.select("#top-note-sel").html("");
     d3.select("#middle-note-sel").html("");
     d3.select("#base-note-sel").html("");
-    d3.select(".results-row").html("")
+    d3.select(".results-row").html("");
+    d3.select(".perfumes-row").html("");
 
 }

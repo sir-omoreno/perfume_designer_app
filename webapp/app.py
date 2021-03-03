@@ -49,6 +49,19 @@ def pefume_notes():
     # print(perfume_notes)
     return jsonify(perfume_notes)
 
+@app.route("/find_perfume_by_notes", methods=["POST"])
+def find_perfume_by_notes():
+    features_list = request.get_json()
+    notes_list = []
+    for note in features_list:
+        x = note.rsplit("_", 1)
+        notes_list.append(x[1])
+    unique_notes = list(set(notes_list))
+    
+    perfumes = list(mongo.db.perfume_data.find({ '$or' : [ {"top notes" : {'$in' : unique_notes}} , {"middle notes" : {'$in' : unique_notes}} , {"base notes" : {'$in' : unique_notes}} ]},{'_id': False}))
+    # print(perfumes)
+    return jsonify(perfumes)
+
 @app.route("/perfume_predict2", methods=["POST"])
 def perfume_predict2():
     features_list = request.get_json()
