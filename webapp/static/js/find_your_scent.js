@@ -268,6 +268,6 @@ function clearForm() {
     d3.select("#middle-note-sel").html("");
     d3.select("#base-note-sel").html("");
     d3.select(".results-row").html("");
-    d3.select(".perfumes-row").html("");
+    d3.select("tbody").html("");
 
 }
