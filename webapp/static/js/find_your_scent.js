@@ -2,7 +2,7 @@
 var form = d3.select("form");
 
 // Create fragrance
-// form.on("submit", findPopularity);
+form.on("submit", findGender);
 
 form.on("reset", clearForm);
 
@@ -25,17 +25,19 @@ function listTopNotes(topNoteCount) {
         perfumeNotesData.forEach(data => perfumeNotes.push(data["Note Name"]));
         perfumeNotes.sort();
         
-        console.log(perfumeNotes);
         // add drop downs for the number of notes selected
         for (i = 0; i < topNoteCount; i++) {
+            
             var topNotesID = "topNote" + i;
             var topNotesDiv = topNoteSel.append("div")
                 .text("Top Note " + (i+1) + " ")
-            var topNotesDropDown = topNotesDiv.append("input")
-                .attr('list', topNotesID)
-                .attr('name', topNotesID)
-                .append("datalist")
+            var topNotesDropDown = topNotesDiv.append("select")
                 .attr('id', topNotesID);
+            // var topNotesDropDown = topNotesDiv.append("input")
+            //     .attr('list', topNotesID)
+            //     .attr('name', topNotesID)
+            //     .append("datalist")
+            //     .attr('id', topNotesID);
             perfumeNotes.forEach(item => {
                 topNotesDropDown.append("option")
                     .text(item)
@@ -90,11 +92,13 @@ function listMiddleNotes(middleNoteCount) {
             var middleNotesID = "middleNote" + i;
             var middleNotesDiv = middleNoteSel.append("div")
                 .text("Middle Note " + (i+1) + " ")
-            var middleNotesDropDown = middleNotesDiv.append("input")
-                .attr('list', middleNotesID)
-                .attr('name', middleNotesID)
-                .append("datalist")
+            var middleNotesDropDown = middleNotesDiv.append("select")
                 .attr('id', middleNotesID);
+            // var middleNotesDropDown = middleNotesDiv.append("input")
+            //     .attr('list', middleNotesID)
+            //     .attr('name', middleNotesID)
+            //     .append("datalist")
+            //     .attr('id', middleNotesID);
             perfumeNotes.forEach(item => {
                 middleNotesDropDown.append("option")
                     .text(item)
@@ -125,17 +129,18 @@ function listBaseNotes(baseNoteCount) {
         perfumeNotesData.forEach(data => perfumeNotes.push(data["Note Name"]));
         perfumeNotes.sort();
 
-        console.log(perfumeNotes);
         // add drop downs for the number of notes selected
         for (i = 0; i < baseNoteCount; i++) {
             var baseNotesID = "baseNote" + i;
             var baseNotesDiv = baseNoteSel.append("div")
             .text("Base Note " + (i+1) + " ")
-            var baseNotesDropDown = baseNotesDiv.append("input")
-                .attr('list', baseNotesID)
-                .attr('name', baseNotesID)
-                .append("datalist")
+            var baseNotesDropDown = baseNotesDiv.append("select")
                 .attr('id', baseNotesID);
+            // var baseNotesDropDown = baseNotesDiv.append("input")
+            //     .attr('list', baseNotesID)
+            //     .attr('name', baseNotesID)
+            //     .append("datalist")
+            //     .attr('id', baseNotesID);
             perfumeNotes.forEach(item => {
                 baseNotesDropDown.append("option")
                     .text(item)
@@ -149,7 +154,7 @@ function listBaseNotes(baseNoteCount) {
 }
 
 // function to find the popularity for selected features
-function findPopularity() {
+function findGender() {
     // Prevent the page from refreshing if event is not null
     d3.event.preventDefault();
     var topNoteCount = d3.select("#top-note-count").property("value");
@@ -163,7 +168,9 @@ function findPopularity() {
     var notesList = [];
     for (i = 0; i < topNoteCount; i++) {
         var topNotesID = "#topNote" + i;
-        var topNoteFeature = "top_note_" + d3.select(topNotesID).property("value");
+        console.log(topNotesID);
+        console.log(d3.select(topNotesID))
+        var topNoteFeature = "top_note_" + d3.select(topNotesID).node().value;
         console.log(topNoteFeature);
         notesList.push(topNoteFeature);
     }
@@ -181,16 +188,26 @@ function findPopularity() {
         console.log(baseNoteFeature);
         notesList.push(baseNoteFeature);
     }
-    console.log(notesList);
 
-    d3.json("/perfume_popularity/{notesList}").then(function (perfumeNotesData, err) {
+    d3.json("/perfume_predict2", {
+        method:"POST",
+        body: JSON.stringify(
+          notesList
+        ),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      }).then(function (perfumeModelResult, err) {
         if (err) { throw err };
-        if (!perfumeNotesData) {
+        if (!perfumeModelResult) {
             console.log("I wasn't able to get data from the Web API you selected.");
             return;
         }
 
-        
+        var resultsRow = d3.select(".results-row")
+        resultsRow.append("h4")
+            .text("Your new Fragrance is perfect " + perfumeModelResult + "!")
+        console.log(perfumeModelResult)
     }).catch(function (error) {
         console.log(error);
     });

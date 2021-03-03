@@ -59,7 +59,7 @@
   </div>
 
   <!-- Testing form code -->
-  <form action="/perfume_predict" method="POST" role="form">
+  <form>
     <div class="row notes-row">
       <!-- Drop down to select Number of Notes -->
       <!-- Top Notes -->
@@ -104,11 +104,6 @@
       <input type="Reset"></input>
     </div>
     <div class="row results-row">
-      {% if result %}
-      <div class="col-lg-4">
-        <h4>Your new Perfume is {{ result }}</h4>
-      </div>
-      {% endif %}
     </div>
   </form>
 
