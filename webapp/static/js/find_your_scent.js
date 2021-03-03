@@ -234,8 +234,6 @@ function findGender() {
                 var tr = tbody.append("tr");
                 tr.append("td")
                     .attr("colspan", 2)
-                    .attr("font-size", 20)
-                    .attr("font-weight", 200)
                     .text("Perfumes with the notes you selected");
                 for (i = 0; i < perfumesList.length; i++) {
                     console.log(perfumesList[i]);
