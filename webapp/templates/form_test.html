@@ -45,6 +45,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/about">The Coding Angels</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/test">Testing_to_remove</a>
+          </li>
       </ul>
     </div>
   </nav>
@@ -52,33 +55,39 @@
 
 
   <div class="row design-row">
-    <h3>Design your own fragrance and find out if it is for men, women or unisex!</h3>
+    <h3>Design your own fragrance and find out if it would be popular!</h3>
   </div>
   <div class="row design-row">
     Choose your perfume's features
   </div>
 
   <!-- Testing form code -->
-  <form>
+  <form action="/perfume_form_test" method="POST" role="form">
     <div class="row notes-row">
-      <!-- Drop down to select Number of Notes -->
-      <!-- Top Notes -->
-      <div class="col-md-4">
-        <label for="top-note-count">Number of Top Notes (max 3):</label>
-        <input type="number" id="top-note-count" name="top-note-count" min="0" max="3" value=0
-          onchange="listTopNotes(this.value)">
+      <!-- Drop down to select Notes -->
+      <div class="col-md-4">Number of Top Notes
+        <select id="top-note-count" onchange="listTopNotes(this.value)">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
       </div>
-      <!-- Middle Notes -->
-      <div class="col-md-4">
-        <label for="middle-note-count">Number of Middle Notes (max 3):</label>
-        <input type="number" id="middle-note-count" name="middle-note-count" min="0" max="3" value=0
-          onchange="listMiddleNotes(this.value)">
+      <div class="col-md-4">Number of Middle Notes
+        <select id="middle-note-count" onchange="listMiddleNotes(this.value)">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
       </div>
-      <!-- Base Notes -->
-      <div class="col-md-4">
-        <label for="base-note-count">Number of Base Notes (max 3):</label>
-        <input type="number" id="base-note-count" name="base-note-count" min="0" max="3" value=0
-          onchange="listBaseNotes(this.value)">
+      <div class="col-md-4">Number of Base Notes
+        <select id="base-note-count" onchange="listBaseNotes(this.value)">
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
       </div>
     </div>
     <div class="row notes-row">
@@ -91,7 +100,7 @@
       </div>
     </div>
     <div class="row notes-images-row">
-      <!-- Note Images -->
+      <!-- Drop down to select Notes -->
       <div class="col-md-4" id="top-note-img">
       </div>
       <div class="col-md-4" id="middle-note-img">
@@ -99,17 +108,11 @@
       <div class="col-md-4" id="base-note-img">
       </div>
     </div>
-    <!-- Submit and Reset button -->
     <div class="row button-row">
-      <input type="Submit" value="Create Fragrance"></input>
-      <input type="Reset"></input>
+      <input type="Submit" value="Create Fragrance">
+      <input type="Reset">
     </div>
-    <!-- Display Machine Learning model result -->
     <div class="row results-row">
-    </div>
-    <!-- Display perfumes for selected notes -->
-    <div class="row perfumes-row">
-      <table><tbody> </tbody></table>
     </div>
   </form>
 
