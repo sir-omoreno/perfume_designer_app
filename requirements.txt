@@ -1,4 +1,4 @@
-absl-py @ file:///tmp/build/80754af9/absl-py_1607439979954/work
+#absl-py @ file:///tmp/build/80754af9/absl-py_1607439979954/work
 argon2-cffi @ file:///C:/ci/argon2-cffi_1613037829118/work
 astor==0.8.1
 async-generator==1.10
