@@ -39,9 +39,9 @@ body{
 }
 
 /* Add a color to the active/current link */
-.navbar a.active {
-  background-color: #4CAF50;
-  color: white;
+.navbar .nav-link.active {
+  background-color: #c9e265;
+  color: black;
 }
 
 /* --------- Nav Bar ---------- */
@@ -83,12 +83,14 @@ body{
   justify-content: center;
   text-align: center;
   padding: 20px;
+  color: #7b2c2d;
 }
 
 .perfumes-row {
   justify-content: center;
   text-align: center;
   padding: 20px;
+  font-size: 20px;
 }
 
 /* --------- Design your Fragrance page ---------- */
