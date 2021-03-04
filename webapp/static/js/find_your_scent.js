@@ -250,7 +250,7 @@ function findGender() {
             else {
                 var tr = tbody.append("tr");
                 tr.append("td")
-                    .text("There are no perfumes with the notes you selected!");
+                    .text("You created a brand new perfume!");
             }
 
             console.log(perfumesList)
