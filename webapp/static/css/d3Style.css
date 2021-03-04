@@ -1,0 +1,46 @@
+  .aText {
+    font-family: sans-serif;
+    font-size: 30px;
+    text-anchor: middle;
+  }
+  
+  .active {
+    font-weight: bold;
+    fill: #000;
+    transition: fill 0.3s ease-out;
+    text-anchor: middle;
+  }
+  
+  .inactive {
+    font-weight: lighter;
+    fill: #c9c9c9;
+    transition: fill 0.3s ease-out;
+    text-anchor: middle;
+  }
+  
+  .inactive:hover {
+    fill: #000;
+    cursor: pointer;
+  }
+  
+  .ourtooltip {
+    position: absolute;
+    width: 300px; 
+    height: fit-content; 
+    padding: 10px;
+    font: 16px sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: left;
+    background: mistyrose;
+    border: 1;
+    border-radius: 10px;
+  }
+
+  /* Mobile Rules */
+    @media screen and (max-width: 530px) {
+
+    .aText {
+      font-size: 14px;
+    }
+
+    };
