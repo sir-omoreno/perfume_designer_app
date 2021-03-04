@@ -42,7 +42,7 @@ body{
 /* Add a color to the active/current link */
 .navbar .nav-link.active {
   background-color: #c9e265;
-  color: black;
+  color: black !important;
 }
 
 /* --------- Nav Bar ---------- */
