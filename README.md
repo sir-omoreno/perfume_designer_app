@@ -137,6 +137,17 @@ joblib.dump(final_model, filename)
 
 
 ## Tableau Development
+For the Tableau visualizations we used a jupyter notebook to change our json to a csv. We used a calculated field to change Rating from a string to an integer. We also truncated Rating to create a bar chart of the ratings in the second Dashboard. The dashbaords were then embedded into our website. 
+
+- [Dashboard1](https://public.tableau.com/views/Perfume_Dashboard2_JV/Dashboard2?:language=en&:display_count=y&publish=yes&:origin=viz_share_link)
+- [Dashboard2](https://public.tableau.com/profile/chloe3464#!/vizhome/perfumes_dash/Dashboard1?publish=yes)
+
+![Gender](images/gender_pie_chart.png)
+![Top](images/top_10_perfumes.png)
+![TopGender](images/top_perfumes_by_gender.png)
+![Bubble](images/bubble_chart.png)
+![RateRange](images/perfumes_range.png)
+![MostVotes](images/most_votes.png)
 
 ## Setup
 

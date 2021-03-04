@@ -21,11 +21,12 @@ body{
 /* Style the links inside the navigation bar */
 .navbar a {
   float: left;
-  color: #f2faf2;
+  color: #f2faf2 !important;
   text-align: center;
-  /* padding: 14px 16px; */
+  padding-left: 20px !important;
+  padding-right: 20px !important;
   text-decoration: none;
-  font-size: 25px;
+  font-size: 20px;
   /* font-style: oblique; */
   /* font-weight: 400; */
   /* font-variant: small-caps; */
@@ -35,13 +36,13 @@ body{
 /* Change the color of links on hover */
 .navbar a:hover {
   background-color: #ddd;
-  color: black;
+  color: black !important;
 }
 
 /* Add a color to the active/current link */
-.navbar a.active {
-  background-color: #4CAF50;
-  color: white;
+.navbar .nav-link.active {
+  background-color: #c9e265;
+  color: black !important;
 }
 
 /* --------- Nav Bar ---------- */
@@ -83,12 +84,14 @@ body{
   justify-content: center;
   text-align: center;
   padding: 20px;
+  color: #7b2c2d;
 }
 
 .perfumes-row {
   justify-content: center;
   text-align: center;
   padding: 20px;
+  font-size: 20px;
 }
 
 /* --------- Design your Fragrance page ---------- */
