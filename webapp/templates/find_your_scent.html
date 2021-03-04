@@ -52,14 +52,14 @@
 
 
   <div class="row design-row">
-    <h3>Design your own fragrance and find out if it would be popular!</h3>
+    <h3>Design your own fragrance and find out if it is for men, women or unisex!</h3>
   </div>
   <div class="row design-row">
     Choose your perfume's features
   </div>
 
   <!-- Testing form code -->
-  <form action="/perfume_predict" method="POST" role="form">
+  <form>
     <div class="row notes-row">
       <!-- Drop down to select Number of Notes -->
       <!-- Top Notes -->
@@ -99,16 +99,17 @@
       <div class="col-md-4" id="base-note-img">
       </div>
     </div>
+    <!-- Submit and Reset button -->
     <div class="row button-row">
       <input type="Submit" value="Create Fragrance"></input>
       <input type="Reset"></input>
     </div>
+    <!-- Display Machine Learning model result -->
     <div class="row results-row">
-      {% if result %}
-      <div class="col-lg-4">
-        <h4>Your new Perfume is {{ result }}</h4>
-      </div>
-      {% endif %}
+    </div>
+    <!-- Display perfumes for selected notes -->
+    <div class="row perfumes-row">
+      <table><tbody> </tbody></table>
     </div>
   </form>
 

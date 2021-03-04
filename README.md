@@ -93,7 +93,7 @@ We loaded the perfume data from MongoDB. The perfume notes are divided as top, m
 
 If a note was not an ingredient in the perfume, it was marked as 0, otherwise it was marked as 1. We decided to use only notes as features. Accords are a combination of notes, so we dropped that as a feature. Longevity, Sillage, gender vote and price value does not affect the outcome of if the perfume is for a particular gender, so we skipped those as features as well. After dropping unnecessary columns from the perfume dataframe, the resulting was X(data) which are all the features and y(target) was if the perfume was for men, women or unisex. 
 
-A dataframe was created listing all the features and uploaded to MongoDB. We will use this later in app.py
+A dataframe was created listing all the features and uploaded to MongoDB. We will use this later in app.py. Another dataframe with all the notes from the perfumes in the perfume_data collection was created and added to MongoDB as notes_features. This is used for the list of notes on the "Create A Frangrance" page.
 
 We also looked at the feature importance, but did not remove any since they had almost the same importance.
 
@@ -144,7 +144,16 @@ joblib.dump(final_model, filename)
 - Notes_Scrape.ipynb 
 - Perfume_Scrape.ipynb
 
+**MongoDB creation:**
+- mongo_db/mongo_db_creation.ipynb
+
+**Machine Learning Model**
+- ML/Perfume_ML_Gender.ipynb
+
 #### Setup Instructions
+
+Create a new conda environment with python version 3.7
+Use pip install -r requirements.txt
 
 ## Lessons Learned
 
