@@ -16,7 +16,7 @@ itsdangerous==1.1.0
 Keras==2.3.1
 MarkupSafe==1.1.1
 mistune==0.8.4
-mkl-fft==1.2.0
+#mkl-fft==1.2.0
 mkl-random==1.1.1
 mkl-service==2.3.0
 mrjob==0.7.4
