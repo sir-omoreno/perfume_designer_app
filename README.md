@@ -11,7 +11,7 @@ Check out our LIVE Heroku Webpage here: https://scent-angels.herokuapp.com/
 * [Data Sources](#data)
 * [Technologies](#technologies)
 * [Libraries & Dependencies](#libraries)
-* [Data Selection, Processing & Cleanup(#data-processing)
+* [Data Selection, Processing & Cleanup](#data-processing)
 * [Machine Learning Development](#machine-learning)
 * [Tableau Development](#tableau)
 * [Perfume Designer App](#web-app)
@@ -29,15 +29,18 @@ Check out our LIVE Heroku Webpage here: https://scent-angels.herokuapp.com/
 - [Kasey Lacerda](https://github.com/KLacerda08)
 - [Osvaldo (Ozzie) Mauricio Moreno](https://github.com/sir-omoreno)
 
-## Data Sources
+## Data and Information Sources
 
-### Web Scraping Data
+#### Web Scraping Data
 - [Fragrantica](https://www.fragrantica.com/)
+#### Perfume Terminology
+- [Fragrantica](https://www.fragrantica.com/)
+- [Bella Aire Creations](https://www.belleairecreations.com/fragrance-terminology-guide/)
 
 ## Technologies
 * Python
 * Flask
-* Javascript
+* JavaScript
 * HTML/ CSS
 * Bootstrap
 * JSON
@@ -91,7 +94,6 @@ We initially created web-scraping code to gather all perfumes from the fragranti
 We also scraped all available perfume notes, for a total of 1,012. 
 
 ### Processing and Cleanup 
-**Web Scraping Data**
 - Performed web scraping in jupyter notebook using BeautifulSoup, Splinter, and selenium
 - Scraped perfume_data was converted data to a dictionary or list of dictionaries and exported to a json file.
 - Scraped perfume_notes were converted to a csv file
@@ -165,11 +167,11 @@ For the Tableau visualizations we used a jupyter notebook to change our json to 
 ![MostVotes](images/most_votes.png)
 
 ## Perfume Designer App
-We created a web-app using Flask, html, css, javascript, and D3.  Our app includes the Hom page and 3 interactive webpages:  
+We created a web-app using Flask, HTML, CSS, JavaScript, and D3.  Our app includes a Home page and 3 interactive webpages:  
 * Create Your Fragrance: lets you create a perfume based on a selection of Top, Middle, and Base Notes.  You can select up to three notes of each: scroll through and peruse the list, or simply start typing a note that strikes your fancy.  Our machine learning model will let you know if that scent is best for men or women or both.  Our model will also tell you whether you've created an entirely new perfume! 
 ![CreatePerfume1](images/create_perfume1.png)
 
-Finally, if an existing scent contains at least one each of the top, middle, and base notes you selected, our model will return the names of those scents for you to consider in your search for the perfect perfume! 
+* Finally, if an existing scent contains at least one each of the top, middle, and base notes you selected, our model will return the names of those scents for you to consider in your search for the perfect perfume! 
 ![CreatePerfume2](images/create_perfume2.png)
 
 * Perfume Info: Click on a fragrance term to see its definition and gain a better understanding of what makes a perfume! 

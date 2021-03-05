@@ -1,0 +1,19 @@
+Image sources for Perfume Info page: 
+* perfume rainbow smoke: 
+https://webstockreview.net/explore/perfume-clipart-smell-perfume/
+
+
+*perfume_chem1: 
+https://www.google.com/search?q=perfume+chemistry+image&client=firefox-b-1-d&source=lnms&tbm=isch&sa=X&ved=2ahUKEwj8hp_NypLvAhW6F1kFHX0FC2UQ_AUoAXoECA0QAw&biw=1252&bih=574#imgrc=fcJYTIzK1tl-nM
+
+perfume_chem2: https://www.fragrancex.com/blog/how-is-perfume-made/ 
+
+topnote: https://www.fragrantica.com/notes/Lemon-77.html
+midnote: https://www.fragrantica.com/notes/Rose-105.html 
+basenote: https://www.fragrantica.com/notes/Woody-Notes-315.html
+
+sillage: perfume_smoke 
+https://webstockreview.net/explore/perfume-clipart-smell-perfume/ 
+
+longevity: long
+https://www.soulvisiondesigns.nl/design-your-own-perfume.htm
