@@ -99,7 +99,7 @@ Based on the perfume notes, we wanted to check if we could predict if the perfum
 
 We loaded the perfume data from MongoDB. The perfume notes are divided as top, middle and base notes. Each of these fields is a list. So we had to use MultiLabelBinarizer to create a feature column for each note based on if it is a top, middle or base note.
 
-![MultiLabelBinarizer](images/MultiLabelBinarizer.png "MultiLabelBinarizer")
+![MultiLabelBinarizer](images/MultiLabelBinarizer1.png "MultiLabelBinarizer")
 
 If a note was not an ingredient in the perfume, it was marked as 0, otherwise it was marked as 1. We decided to use only notes as features. Accords are a combination of notes, so we dropped that as a feature. Longevity, Sillage, gender vote and price value does not affect the outcome of if the perfume is for a particular gender, so we skipped those as features as well. After dropping unnecessary columns from the perfume dataframe, the resulting was X(data) which are all the features and y(target) was if the perfume was for men, women or unisex. 
 
@@ -175,7 +175,7 @@ For the Tableau visualizations we used a jupyter notebook to change our json to 
 
 1. Create a new conda environment with python version 3.7  
 2. Use pip install -r requirements.txt   
-3. Webscraping: **NOTE:** The followings files were involved in web-scraping or used to create json files that were imported into the Mongo DB and DO NOT need to be run:
+3. Webscraping: **NOTE:** The followings files were involved in web-scraping or used to create json files that were imported into the Mongo DB and DO NOT need to be run: Notes_Scrape.ipynb and Perfume_Scrape.ipynb
 4. Run https://github.com/sir-omoreno/final-project/blob/main/mongo_db/mongo_db_creation.ipynb to create the MongoDB collection.
 5. Run https://github.com/sir-omoreno/final-project/blob/main/ML/Perfume_ML_Gender.ipynb which creates the perfume_features and note_features collections and creates the machine learning model (gender_perfume_model.sav)
 6. Run https://github.com/sir-omoreno/final-project/blob/main/webapp/app.py in your new conda environment to open the flask web application.
