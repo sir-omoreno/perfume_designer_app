@@ -89,6 +89,7 @@ The fragrantica.com website provided information on perfumes/cologne available f
 - Price Value
 - Gender
 
+### Web Scraping 
 We initially created web-scraping code to gather all perfumes from the fragrantica.com website. However, on the main search page when the "see more results" button was clicked, the page maxed out at 1,000 perfumes, despite having over 60,000 perfumes on record. We rewrote our code to scrape the data by year in a effort to gather as many perfumes as possible, presuming that no more than 1000 perfumes would have been developed in any one year (from the 1920s through 2020). If more than 1,000 perfumes were produced in a single year, the then those extra perfumes would not be reflected in our database. Additionally, due to other web scraping limitations, we were able to scrape a total of 517 perfumes during the project timeframe. 
 
 We also scraped all available perfume notes, for a total of 1,012. 
