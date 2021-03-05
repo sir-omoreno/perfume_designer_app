@@ -1,5 +1,5 @@
 # Scent Angels
-We have created a website that uses machine learning to predict a perfume’s popularity based on certain perfume features: accord, notes, sillage etc. and have built a “Perfume Designer” App where you can create your perfume and see if it would be popular or not.
+We have created a website that uses machine learning to predict if a perfume is for men, women or unisex based on perfume notes. Check out our “Perfume Designer” App where you can create your perfume and see which gender it would be ideal for.
 Check out a brief introduction to our website development, here: https://docs.google.com/presentation/d/1kLpmB_BrK-Ui5TlWWvtS06L78TBK4_cAGl9DQRv548c/edit#slide=id.gbf44f01a53_0_25  
 Check out our LIVE Heroku Webpage here: https://scent-angels.herokuapp.com/
 
@@ -59,6 +59,16 @@ Check out our LIVE Heroku Webpage here: https://scent-angels.herokuapp.com/
 * Webdriver_manager.chrome
 * Pymongo
 * Pprint 
+* Matplotlip
+* Seaborn
+* Sklearn
+* Tensorflow
+
+JavaScript Dependencies
+
+* D3 Javascript
+* D3 ToolTip
+
 
 **HTML CSS Dependencies**
 * [Bootstrap Stylesheet](https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css)
@@ -163,12 +173,16 @@ For the Tableau visualizations we used a jupyter notebook to change our json to 
 
 #### Setup Instructions
 
-Create a new conda environment with python version 3.7
-Use pip install -r requirements.txt
+1. Create a new conda environment with python version 3.7  
+2. Use pip install -r requirements.txt   
+3. Webscraping: **NOTE:** The followings files were involved in web-scraping or used to create json files that were imported into the Mongo DB and DO NOT need to be run:
+4. Run https://github.com/sir-omoreno/final-project/blob/main/mongo_db/mongo_db_creation.ipynb to create the MongoDB collection.
+5. Run https://github.com/sir-omoreno/final-project/blob/main/ML/Perfume_ML_Gender.ipynb which creates the perfume_features and note_features collections and creates the machine learning model (gender_perfume_model.sav)
+6. Run https://github.com/sir-omoreno/final-project/blob/main/webapp/app.py in your new conda environment to open the flask web application.
 
 ## Lessons Learned
 
-We had initially planned to create a machine learning model that would predict the popularity of the perfume based on the perfume features. However, this model returns negative R2 scores indicating that the model was just not a bad but extremely terrible fit for the data.
+We had initially planned to create a machine learning model that would predict the popularity of the perfume based on the perfume features. However, this model returns negative R2 scores indicating that the model was just not a bad but extremely terrible fit for the data. Had we been able to scrape more perfumes and tune our model, we may have had better results.
 
 ## Inspiration
 Inspired by Rutgers Data Visulization Bootcamp & smelly people everywhere!
